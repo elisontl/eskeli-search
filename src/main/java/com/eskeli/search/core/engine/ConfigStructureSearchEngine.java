@@ -59,15 +59,17 @@ public abstract class ConfigStructureSearchEngine extends BasicAchieveSearchEngi
 
         StringBuffer highlightFieldNames = new StringBuffer("");
 
-        Arrays.stream(fields).forEach(field -> {
-            KeliSearchIdxArea idxArea = field.getDeclaredAnnotation(KeliSearchIdxArea.class);
-            // 反向排除显式指定的非高亮域
-            if (idxArea != null && (!idxArea.highlight())) {
-                return;
-            }
-            highlightBuilder.field(field.getName());
-            highlightFieldNames.append(field.getName()).append(",");
-        });
+        if (fields != null) {
+            Arrays.stream(fields).forEach(field -> {
+                KeliSearchIdxArea idxArea = field.getDeclaredAnnotation(KeliSearchIdxArea.class);
+                // 反向排除显式指定的非高亮域
+                if (idxArea != null && (!idxArea.highlight())) {
+                    return;
+                }
+                highlightBuilder.field(field.getName());
+                highlightFieldNames.append(field.getName()).append(",");
+            });
+        }
 
         if (highlightFieldNames != null) {
             highlightFieldNames.deleteCharAt(highlightFieldNames.length() - 1);
@@ -111,10 +113,11 @@ public abstract class ConfigStructureSearchEngine extends BasicAchieveSearchEngi
         highlightBuilder.numOfFragments(0);
 
         // 混排搜索（ 公共字段 ）
-        Stream.of(commonHighlightFields).forEach(commonHighlightField -> {
-            highlightBuilder.field(commonHighlightField);
-        });
-
+        if (commonHighlightFields != null) {
+            Stream.of(commonHighlightFields).forEach(commonHighlightField -> {
+                highlightBuilder.field(commonHighlightField);
+            });
+        }
         // 设置高亮器 （ 构建关联: SearchSourceBuilder Obj << HighlightBuilder Obj  ）
         searchSourceBuilder.highlighter(highlightBuilder);
 

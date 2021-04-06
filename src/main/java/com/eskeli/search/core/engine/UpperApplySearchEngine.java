@@ -534,6 +534,8 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
      */
     public List<Map<String, Object>> globalSearch(RestHighLevelClient restHighLevelClient, SearchParam searchParam) {
 
+        Objects.requireNonNull(searchParam, "请指定searchParam参数，该参数不能为空 ！");
+
         // 获取参与全局统一搜索的 { 索引 }
         String[] businessIndices = getBusinessIndices(restHighLevelClient);
 
