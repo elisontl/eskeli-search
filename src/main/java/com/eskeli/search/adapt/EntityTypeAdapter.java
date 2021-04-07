@@ -4,6 +4,11 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
 
+/**
+ * Class Desc : 类型适配
+ *
+ * @author elison.s
+ */
 public class EntityTypeAdapter {
 
     /**
