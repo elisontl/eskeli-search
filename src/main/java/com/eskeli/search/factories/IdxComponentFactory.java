@@ -1,6 +1,7 @@
 package com.eskeli.search.factories;
 
 import com.eskeli.search.annotation.KeliSearchIdxEntity;
+import com.eskeli.search.constant.KeliSearchConstant;
 import com.eskeli.search.entity.IdxComponent;
 import com.eskeli.search.utils.StringUtils;
 import java.util.HashMap;
@@ -32,6 +33,9 @@ public class IdxComponentFactory {
         String alias = (indexClazz != null) ? indexClazz.alias() : null;
         // 获取索引名
         String indexName = (StringUtils.isNotEmpty(alias) ? alias.toLowerCase() : convert2IndexName(clazz.getSimpleName()));
+
+        indexName = KeliSearchConstant.DATA_INDEX_PREFIX + indexName;
+
         return new IdxComponent(indexName, indexClazz);
     }
 

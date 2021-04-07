@@ -9,7 +9,7 @@ import java.lang.annotation.*;
  *
  *  全域索引：（除去配置 @KeliSearchNotIdxArea 注解的字段外，所有字段全部索引，以下两种场景都按全域索引处理）
  *  <1> 实体类指定该注解，且 wholeAreaIndex为true
- *  <2> 实体类不指定该注解（一般建议指定索引注解，以对索引进行更精细化控制）
+ *  <2> 实体类不指定该注解（不推荐，一般建议指定索引注解，以对索引进行更精细化控制）
  *
  *  非全域索引：（只索引实体类中配有 @KeliSearchIdxArea 的字段）
  *  <1> 实体类指定该注解，且 wholeFieldIndex 为 false（默认方式）

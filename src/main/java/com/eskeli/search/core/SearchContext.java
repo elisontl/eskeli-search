@@ -7,6 +7,7 @@ import com.eskeli.search.entity.SearchFieldInformation;
 import com.eskeli.search.entity.SearchParam;
 import org.apache.http.util.Asserts;
 import org.elasticsearch.client.RestHighLevelClient;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -107,6 +108,10 @@ public class SearchContext {
      * @return
      */
     public <T> boolean publishIndexData(T t) {
+        if (t instanceof Collection) {
+            Asserts.check(t instanceof List<?>, "集合类型暂支持List，请指定集合类型为List");
+            return publishMultipleIndexData((List<? extends Object>) t);
+        }
         return publishIndexData(null, t, null);
     }
 
@@ -119,6 +124,10 @@ public class SearchContext {
      * @return
      */
     public <T> boolean publishIndexData(T t, Map<String, SearchFieldInformation> searchFieldInformations) {
+        if (t instanceof Collection) {
+            Asserts.check(t instanceof List<?>, "集合类型暂支持List，请指定集合类型为List");
+            return publishMultipleIndexData(null, (List<?>) t, searchFieldInformations);
+        }
         return publishIndexData(null, t, searchFieldInformations);
     }
 
@@ -130,6 +139,10 @@ public class SearchContext {
      * @return
      */
     public <T> boolean publishIndexData(String indexName, T t, Map<String, SearchFieldInformation> searchFieldInformations) {
+        if (t instanceof Collection) {
+            Asserts.check(t instanceof List<?>, "集合类型暂支持List，请指定集合类型为List");
+            return searchEngine.publishMultipleIndexData(indexName, (List<?>) t, searchFieldInformations);
+        }
         return searchEngine.publishIndexData(indexName, t, searchFieldInformations);
     }
 
