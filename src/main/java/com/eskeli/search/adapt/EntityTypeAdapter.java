@@ -6,6 +6,8 @@ import java.util.Collection;
 
 /**
  * Class Desc : 类型适配
+ *
+ * @author elison.s
  */
 public class EntityTypeAdapter {
 
