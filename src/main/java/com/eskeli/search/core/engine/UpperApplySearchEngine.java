@@ -1,7 +1,7 @@
 package com.eskeli.search.core.engine;
 
+import com.eskeli.search.adapt.EntityTypeAdapter;
 import com.eskeli.search.annotation.KeliSearchIdxEntity;
-import com.eskeli.search.annotation.KeliSearchIdxArea;
 import com.eskeli.search.constant.KeliSearchConstant;
 import com.eskeli.search.core.engine.idxunits.HighlightComponent;
 import com.eskeli.search.core.func.ConvertSourceToMapFunction;
@@ -61,19 +61,6 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
     }
 
     /**
-     * 数据类型适配
-     * Java Data Type 适配 ElasticSearch Data Type
-     *
-     * @param contentBuilder : XContentBuilder : 内容构造器
-     * @param clazz : Class<?> : 类型
-     * @param idxArea : @KeliSearchIdxArea : 字段索引注解对象（主要完成索引域的特性配置）
-     * @return
-     */
-    public XContentBuilder adaptDataType(XContentBuilder contentBuilder, Class<?> clazz, KeliSearchIdxArea idxArea) {
-        return adaptDataType(contentBuilder, clazz, idxArea);
-    }
-
-    /**
      * 创建索引（索引名自动生成）
      *
      * @param t : T
@@ -99,7 +86,7 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
         if (t == null) return false;
 
         // Get实体对象t的Class对象，适配无限定类型实体
-        Class<?> clazz = t.getClass();
+        Class<?> clazz = (t instanceof Collection) ? EntityTypeAdapter.resolveCollectionGenericClazz((Collection) t) : t.getClass();
 
         // 索引元件对象
         IdxComponent indexComponent = IdxComponentFactory.generateIndexName(clazz);
@@ -121,7 +108,7 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
                     DeleteIndexRequest deleteIndexRequest = new DeleteIndexRequest(indexName);
                     AcknowledgedResponse acknowledgedResponse = restHighLevelClient.indices().delete(deleteIndexRequest, RequestOptions.DEFAULT);
                     if (acknowledgedResponse.isAcknowledged()) {
-                        log.info(MessageFormat.format("索引{0}，已删除", indexName));
+                        log.info(MessageFormat.format("旧索引{0}已删除，新索引待创建", indexName));
                     }
                     // 索引不覆盖
                 } else {
@@ -138,9 +125,11 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
 
         // 3) - 索引设置 Start -
         Map<String, String> paramMap = new HashMap<>();
+        // 设置分片
         if (indexClazz != null && indexClazz.shardsNumber() != 0) {
             paramMap.put("number_of_shards", String.valueOf(indexClazz.shardsNumber()));
         }
+        // 设置副本
         if (indexClazz != null && indexClazz.replicasNumber() != 0) {
             paramMap.put("number_of_replicas", String.valueOf(indexClazz.replicasNumber()));
         }
@@ -187,7 +176,7 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
         if (t == null) return false;
 
         // Get实体对象t的Class对象，适配无限定类型实体
-        Class<?> clazz = t.getClass();
+        Class<?> clazz = (t instanceof Collection) ? EntityTypeAdapter.resolveCollectionGenericClazz((Collection) t) : t.getClass();
 
         // 索引元件对象
         IdxComponent indexComponent = IdxComponentFactory.generateIndexName(clazz);
@@ -278,9 +267,6 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
         indexName = (StringUtils.isEmpty(indexName) && (!list.isEmpty()))
                 ? IdxComponentFactory.generateIndexName(list.get(0).getClass()).getIndexName() : indexName;
 
-        // 前缀可依据自身业务指定，不做限定
-        indexName = KeliSearchConstant.DATA_INDEX_PREFIX + indexName;
-
         // 索引检查
         boolean checkIndexExist = createIndex(restHighLevelClient, indexName, list.get(0), searchFieldInformationMap);
         if (checkIndexExist) {
@@ -336,8 +322,6 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
         indexName = (StringUtils.isEmpty(indexName) && (!list.isEmpty()))
                 ? IdxComponentFactory.generateIndexName(list.get(0).getClass()).getIndexName() : indexName;
 
-        indexName = KeliSearchConstant.DATA_INDEX_PREFIX + indexName;
-
         // 索引检查
         boolean checkIndexExist = createIndex(restHighLevelClient, indexName, list.get(0), searchFieldInformationMap);
         if (checkIndexExist) {
@@ -382,9 +366,9 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
 
         // 索引名
         indexName = (StringUtils.isEmpty(indexName))
-                ? IdxComponentFactory.generateIndexName(t.getClass()).getIndexName() : indexName;
-
-        indexName = KeliSearchConstant.DATA_INDEX_PREFIX + indexName;
+                ? IdxComponentFactory.generateIndexName(
+                    (t instanceof Collection) ? EntityTypeAdapter.resolveCollectionGenericClazz((Collection) t) : t.getClass()
+                ).getIndexName() : indexName;
 
         // 索引检查
         boolean checkIndexExist = createIndex(restHighLevelClient, indexName, t, searchFieldInformationMap);
@@ -476,7 +460,7 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
         // Create SearchRequest obj
         SearchRequest searchRequest;
         if (StringUtils.isNotEmpty(indexName)) {
-            searchRequest = new SearchRequest(KeliSearchConstant.DATA_INDEX_PREFIX + indexName);
+            searchRequest = new SearchRequest(indexName);
         } else {
             String[] businessIndices = getBusinessIndices(restHighLevelClient);
             searchRequest = new SearchRequest(businessIndices);

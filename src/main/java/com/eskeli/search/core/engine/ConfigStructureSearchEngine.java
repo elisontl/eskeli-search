@@ -1,5 +1,6 @@
 package com.eskeli.search.core.engine;
 
+import com.eskeli.search.adapt.EntityTypeAdapter;
 import com.eskeli.search.annotation.KeliSearchIdxArea;
 import com.eskeli.search.annotation.KeliSearchNotIdxArea;
 import com.eskeli.search.constant.KeliSearchConstant;
@@ -146,8 +147,11 @@ public abstract class ConfigStructureSearchEngine extends BasicAchieveSearchEngi
      */
     public <T> XContentBuilder createIndexMapping(T t, boolean wholeFieldIndex,
                                                   Map<String, SearchFieldInformation> searchFieldInformationMap) throws IOException {
+
+       Class<?> clazz = (t instanceof Collection) ? EntityTypeAdapter.resolveCollectionGenericClazz((Collection) t) : t.getClass();
+
         // 确定索引域
-        Field[] fields = t.getClass().getDeclaredFields();
+        Field[] fields = clazz.getDeclaredFields();
         // "mappings" - "type" - "properties"
         XContentBuilder mappingBuilder = XContentFactory.jsonBuilder();
         mappingBuilder.startObject();
@@ -193,10 +197,15 @@ public abstract class ConfigStructureSearchEngine extends BasicAchieveSearchEngi
     public <T> XContentBuilder createIndexMapping(T t, boolean wholeFieldIndex,
                                                   Map<String, SearchFieldInformation> searchFieldInformationMap,
                                                   EnrichFieldPropertiesFunction enrichFieldPropertiesFunction) throws IOException {
+
+        Class<?> clazz = (t instanceof Collection) ? EntityTypeAdapter.resolveCollectionGenericClazz((Collection) t) : t.getClass();
+
         // 确定索引域
-        Field[] fields = t.getClass().getDeclaredFields();
+        Field[] fields = clazz.getDeclaredFields();
+
         // "mappings" -- "type" -- "properties"
         XContentBuilder mappingBuilder = XContentFactory.jsonBuilder();
+
         mappingBuilder.startObject();
         {
             mappingBuilder.startObject("properties");
