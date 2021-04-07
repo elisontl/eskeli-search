@@ -9,8 +9,7 @@ public class EntityTypeAdapter {
     /**
      * Resolve collection generic clazz
      *
-     * @param t
-     * @param <T>
+     * @param t : T : 任意类型对象
      * @return
      */
     public static <T extends Collection> Class<?> resolveCollectionGenericClazz(T t) {
