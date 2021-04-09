@@ -52,7 +52,7 @@ public class SmartSearchEngine extends UpperApplySearchEngine {
     }
 
     /**
-     * 精装创建
+     * 精准创建
      *
      * @param indexName : String : 索引名称
      * @param t : T
