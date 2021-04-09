@@ -98,7 +98,6 @@ public class SmartSearchEngine extends UpperApplySearchEngine {
         Field[] fields = IndexFieldIdentifyComponent.synthesizeIndexFields(smartIndex.getClass());
         Stream.of(fields).forEach(CheckedConsumerProcessor.accept(field -> {
             field.setAccessible(true);
-            // 集合类型处理
             if (List.class.isAssignableFrom(field.getType()) || Set.class.isAssignableFrom(field.getType())) {
                 field.setAccessible(true);
                 Type type = field.getType();
