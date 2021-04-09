@@ -165,7 +165,7 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
     /**
      * 创建索引（指定mapping方式）
      *
-     * @param  restHighLevelClient : RestHighLevelClient : 搜索引擎链接客户端
+     * @param restHighLevelClient : RestHighLevelClient : 搜索引擎链接客户端
      * @param indexName : String : 索引名称
      * @param mappingBuilder : XContentBuilder : 指定的Mapping映射
      * @return
