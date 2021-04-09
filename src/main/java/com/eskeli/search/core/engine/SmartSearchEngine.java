@@ -121,8 +121,8 @@ public class SmartSearchEngine extends UpperApplySearchEngine {
     /**
      * 单条发布索引数据
      *
-     * @param indexName                 : String : 索引名（如果不指定索引名，按当前t类型自动合成，确定索引名）
-     * @param t                         : T
+     * @param indexName : String : 索引名（如果不指定索引名，按当前t类型自动合成，确定索引名）
+     * @param t : T
      * @param searchFieldInformationMap : Map<String, SearchFieldInformation>
      * @param <T>
      * @return
@@ -135,8 +135,8 @@ public class SmartSearchEngine extends UpperApplySearchEngine {
     /**
      * 搜索方法
      *
-     * @param indexName   : String : 索引名称
-     * @param clazz       : Class<R> : 该参数，作用有二 (1) 指定返回类型 (2) 当未指定索引名indexName时，依据此类型，可自动识别索引
+     * @param indexName : String : 索引名称
+     * @param clazz : Class<R> : 该参数，作用有二 (1) 指定返回类型 (2) 当未指定索引名indexName时，依据此类型，可自动识别索引
      * @param searchParam : SearchParam : 搜索参数对象
      * @param <R>
      * @return
