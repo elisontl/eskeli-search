@@ -59,7 +59,7 @@ public class EntityFieldTypeAdapter {
     /**
      * 转换值类型
      *
-     * @param  : Field
+     * @param clazz : Class<T>
      * @param field_Val : Object
      */
     public static <T> T adaptField_Val(Class<T> clazz, Object field_Val) throws ParseException {
