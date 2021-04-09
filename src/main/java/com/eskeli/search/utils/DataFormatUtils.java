@@ -12,6 +12,7 @@ public class DataFormatUtils {
 
     /**
      * Date -> Str ( yyyy-MM-dd HH:mm:ss )
+     *
      * @param date
      * @return
      */
