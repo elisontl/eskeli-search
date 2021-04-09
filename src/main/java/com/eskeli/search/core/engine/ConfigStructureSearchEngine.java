@@ -162,19 +162,19 @@ public abstract class ConfigStructureSearchEngine extends BasicAchieveSearchEngi
                 // 全字段索引（排除 @KeliSearchNotIndex 修饰的字段）
                 if (wholeFieldIndex) {
                     Arrays.stream(fields)
-                            .filter(field -> field.getDeclaredAnnotation(KeliSearchNotIdxArea.class) == null)
-                            .forEach(CheckedConsumerProcessor.accept(field -> {
-                                epipelagicIndexFieldProperties(field, mappingBuilder, searchFieldInformationMap);
-                            }));
+                        .filter(field -> field.getDeclaredAnnotation(KeliSearchNotIdxArea.class) == null)
+                        .forEach(CheckedConsumerProcessor.accept(field -> {
+                            epipelagicIndexFieldProperties(field, mappingBuilder, searchFieldInformationMap);
+                        }));
                 }
                 // 非全字段索引（只索引 @KeliSearchIdxArea 修饰字段）
                 else {
                     Arrays.stream(fields)
-                            .filter(field -> (field.getDeclaredAnnotation(KeliSearchIdxArea.class) != null))
-                            .filter(field -> (field.getDeclaredAnnotation(KeliSearchNotIdxArea.class) == null))
-                            .forEach(CheckedConsumerProcessor.accept(field -> {
-                                epipelagicIndexFieldProperties(field, mappingBuilder, searchFieldInformationMap);
-                            }));
+                        .filter(field -> (field.getDeclaredAnnotation(KeliSearchIdxArea.class) != null))
+                        .filter(field -> (field.getDeclaredAnnotation(KeliSearchNotIdxArea.class) == null))
+                        .forEach(CheckedConsumerProcessor.accept(field -> {
+                            epipelagicIndexFieldProperties(field, mappingBuilder, searchFieldInformationMap);
+                        }));
                 }
             }
             mappingBuilder.endObject();
@@ -217,9 +217,9 @@ public abstract class ConfigStructureSearchEngine extends BasicAchieveSearchEngi
                             .filter(field -> field.getDeclaredAnnotation(KeliSearchNotIdxArea.class) == null)
                             .forEach(CheckedConsumerProcessor.accept(field -> {
                                 enrichFieldPropertiesFunction.execute(
-                                        field,
-                                        mappingBuilder,
-                                        searchFieldInformationMap
+                                    field,
+                                    mappingBuilder,
+                                    searchFieldInformationMap
                                 );
                             }));
                 }
@@ -230,9 +230,9 @@ public abstract class ConfigStructureSearchEngine extends BasicAchieveSearchEngi
                             .filter(field -> (field.getDeclaredAnnotation(KeliSearchNotIdxArea.class) == null))
                             .forEach(CheckedConsumerProcessor.accept(field -> {
                                 enrichFieldPropertiesFunction.execute(
-                                        field,
-                                        mappingBuilder,
-                                        searchFieldInformationMap
+                                    field,
+                                    mappingBuilder,
+                                    searchFieldInformationMap
                                 );
                             }));
                 }
@@ -273,7 +273,6 @@ public abstract class ConfigStructureSearchEngine extends BasicAchieveSearchEngi
                 ParameterizedType parameterizedType = (ParameterizedType) field.getGenericType();
                 Type[] actualTypes = parameterizedType.getActualTypeArguments();
                 if (actualTypes != null && actualTypes.length > 0) {
-                    // 泛型参数类型
                     String actualTypeName = actualTypes[0].getTypeName();
                     contentBuilder = adaptDataType(contentBuilder, Class.forName(actualTypeName), indexField);
                 }
