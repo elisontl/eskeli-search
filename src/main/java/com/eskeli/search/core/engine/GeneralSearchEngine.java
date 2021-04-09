@@ -28,7 +28,7 @@ public class GeneralSearchEngine extends UpperApplySearchEngine {
     /**
      * 创建索引（不指定索引名，自动生成索引名）
      *
-     * @param t   : T
+     * @param t : T
      * @param <T>
      * @return
      */
