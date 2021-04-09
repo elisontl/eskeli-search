@@ -260,8 +260,8 @@ public abstract class BasicAchieveSearchEngine implements SearchEngine {
 
     /**
      * 转换索引源，字段类型适配
+     
      * @param t : T : 任意类型对象
-     * @param <T>
      * @return
      */
     public <T> Map<String, Object> convertSource2Map(T t) {
