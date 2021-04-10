@@ -68,8 +68,8 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
      * @param <T>
      * @return
      */
-    public <T> boolean createIndex(RestHighLevelClient highLevelClient, T t) {
-        return createIndex(highLevelClient, null, t, null);
+    public <T> boolean createIndex(RestHighLevelClient restHighLevelClient, T t) {
+        return createIndex(restHighLevelClient, null, t, null);
     }
 
     /**
