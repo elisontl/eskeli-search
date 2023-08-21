@@ -1,4 +1,4 @@
-package com.eskeli.search.core.engine;
+package com.eskeli.search.center.engine;
 
 import com.eskeli.search.entity.SearchFieldInformation;
 import com.eskeli.search.entity.SearchParam;

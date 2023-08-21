@@ -1,9 +1,9 @@
-package com.eskeli.search.core.engine;
+package com.eskeli.search.center.engine;
 
 import com.eskeli.search.adapt.EntityFieldTypeAdapter;
 import com.eskeli.search.annotation.KeliSearchIdxArea;
 import com.eskeli.search.constant.KeliSearchConstant;
-import com.eskeli.search.core.engine.idxunits.IndexFieldIdentifyComponent;
+import com.eskeli.search.center.engine.idxunits.IndexFieldIdentifyComponent;
 import com.eskeli.search.exprocess.CheckedConsumerProcessor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
@@ -260,8 +260,8 @@ public abstract class BasicAchieveSearchEngine implements SearchEngine {
 
     /**
      * 转换索引源，字段类型适配
+     
      * @param t : T : 任意类型对象
-     * @param <T>
      * @return
      */
     public <T> Map<String, Object> convertSource2Map(T t) {

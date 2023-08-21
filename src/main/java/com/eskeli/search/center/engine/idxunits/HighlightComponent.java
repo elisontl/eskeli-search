@@ -1,4 +1,4 @@
-package com.eskeli.search.core.engine.idxunits;
+package com.eskeli.search.center.engine.idxunits;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

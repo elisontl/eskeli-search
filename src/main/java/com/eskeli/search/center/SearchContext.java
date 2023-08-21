@@ -1,8 +1,8 @@
-package com.eskeli.search.core;
+package com.eskeli.search.center;
 
 import com.eskeli.search.connection.ConnectClient;
-import com.eskeli.search.core.engine.SearchEngine;
-import com.eskeli.search.core.engine.GeneralSearchEngine;
+import com.eskeli.search.center.engine.SearchEngine;
+import com.eskeli.search.center.engine.GeneralSearchEngine;
 import com.eskeli.search.entity.SearchFieldInformation;
 import com.eskeli.search.entity.SearchParam;
 import org.apache.http.util.Asserts;
@@ -67,8 +67,7 @@ public class SearchContext {
     /**
      * 批量发布数据（ 一 ）
      *
-     * @param list
-     * @param <T>
+     * @param list ：List<T>
      * @return
      */
     public <T> boolean publishMultipleIndexData(List<T> list) {
@@ -78,8 +77,8 @@ public class SearchContext {
     /**
      * 批量发布数据（ 二 ）
      *
-     * @param list
-     * @param searchFieldInformationMap
+     * @param list : List<T>
+     * @param searchFieldInformationMap : Map<String, SearchFieldInformation
      * @param <T>
      * @return
      */
@@ -92,6 +91,7 @@ public class SearchContext {
      *
      * @param indexName: String : 索引名称
      * @param list : List<T> : 索引数据
+     * @param searchFieldInformationMap : Map<String, SearchFieldInformation
      * @return
      */
     public <T> boolean publishMultipleIndexData(String indexName,
@@ -103,8 +103,7 @@ public class SearchContext {
     /**
      * 发布单条数据（ 一 ）
      *
-     * @param t
-     * @param <T>
+     * @param t : T
      * @return
      */
     public <T> boolean publishIndexData(T t) {
@@ -118,8 +117,8 @@ public class SearchContext {
     /**
      * 发布单条数据（ 二 ）
      *
-     * @param t
-     * @param searchFieldInformations
+     * @param t : T
+     * @param searchFieldInformationMap : Map<String, SearchFieldInformation
      * @param <T>
      * @return
      */
@@ -136,6 +135,7 @@ public class SearchContext {
      *
      * @param indexName : String : 索引名称
      * @param t : T : 索引数据对象
+     * @param searchFieldInformationMap : Map<String, SearchFieldInformation
      * @return
      */
     public <T> boolean publishIndexData(String indexName, T t, Map<String, SearchFieldInformation> searchFieldInformations) {
@@ -151,6 +151,7 @@ public class SearchContext {
      *
      * @param indexName : String : 索引名称
      * @param clazz : Class<R> : 索引类别
+     * @param searchParam : SearchParam : 搜索参数Obj
      */
 
     public <R> List<R> search(String indexName, Class<R> clazz, SearchParam searchParam) {

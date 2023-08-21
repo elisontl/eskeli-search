@@ -1,4 +1,4 @@
-package com.eskeli.search.core.engine.idxunits;
+package com.eskeli.search.center.engine.idxunits;
 
 import com.eskeli.search.annotation.KeliSearchIdxEntity;
 import com.eskeli.search.annotation.KeliSearchIdxArea;

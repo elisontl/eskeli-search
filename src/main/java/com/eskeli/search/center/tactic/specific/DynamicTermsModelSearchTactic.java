@@ -1,6 +1,6 @@
-package com.eskeli.search.core.tactic.specific;
+package com.eskeli.search.center.tactic.specific;
 
-import com.eskeli.search.core.tactic.BasicSearchTactic;
+import com.eskeli.search.center.tactic.BasicSearchTactic;
 import org.elasticsearch.index.query.QueryBuilder;
 
 /**

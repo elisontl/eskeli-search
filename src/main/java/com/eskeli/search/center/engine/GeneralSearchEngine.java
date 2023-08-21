@@ -1,4 +1,4 @@
-package com.eskeli.search.core.engine;
+package com.eskeli.search.center.engine;
 
 import com.eskeli.search.entity.SearchFieldInformation;
 import com.eskeli.search.entity.SearchParam;
@@ -28,7 +28,7 @@ public class GeneralSearchEngine extends UpperApplySearchEngine {
     /**
      * 创建索引（不指定索引名，自动生成索引名）
      *
-     * @param t   : T
+     * @param t : T
      * @param <T>
      * @return
      */

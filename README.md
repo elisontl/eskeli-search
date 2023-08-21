@@ -4,6 +4,6 @@
   
   JDK Version >= 1.8（ 推荐 ）
   ElasticSearch Version >= 7.x（ 推荐 ） 
-  Maven Version >= 3.5.0（推荐）
+  Maven Version >= 3.5.0（ 推荐 ）
   
 ---------------------------------------------------------------------

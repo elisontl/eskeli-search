@@ -1,4 +1,4 @@
-package com.eskeli.search.core.tactic;
+package com.eskeli.search.center.tactic;
 
 import org.elasticsearch.index.query.QueryBuilder;
 

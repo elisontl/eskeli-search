@@ -1,8 +1,8 @@
-package com.eskeli.search.core.engine;
+package com.eskeli.search.center.engine;
 
 import com.eskeli.search.annotation.KeliSearchIdxArea;
 import com.eskeli.search.constant.KeliSearchConstant;
-import com.eskeli.search.core.engine.idxunits.IndexFieldIdentifyComponent;
+import com.eskeli.search.center.engine.idxunits.IndexFieldIdentifyComponent;
 import com.eskeli.search.exprocess.CheckedConsumerProcessor;
 import com.eskeli.search.factories.IdxMappingsFactory;
 import com.eskeli.search.entity.SearchFieldInformation;
@@ -52,7 +52,7 @@ public class SmartSearchEngine extends UpperApplySearchEngine {
     }
 
     /**
-     * 精装创建
+     * 精准创建
      *
      * @param indexName : String : 索引名称
      * @param t : T
@@ -98,7 +98,6 @@ public class SmartSearchEngine extends UpperApplySearchEngine {
         Field[] fields = IndexFieldIdentifyComponent.synthesizeIndexFields(smartIndex.getClass());
         Stream.of(fields).forEach(CheckedConsumerProcessor.accept(field -> {
             field.setAccessible(true);
-            // 集合类型处理
             if (List.class.isAssignableFrom(field.getType()) || Set.class.isAssignableFrom(field.getType())) {
                 field.setAccessible(true);
                 Type type = field.getType();
@@ -122,8 +121,8 @@ public class SmartSearchEngine extends UpperApplySearchEngine {
     /**
      * 单条发布索引数据
      *
-     * @param indexName                 : String : 索引名（如果不指定索引名，按当前t类型自动合成，确定索引名）
-     * @param t                         : T
+     * @param indexName : String : 索引名（如果不指定索引名，按当前t类型自动合成，确定索引名）
+     * @param t : T
      * @param searchFieldInformationMap : Map<String, SearchFieldInformation>
      * @param <T>
      * @return
@@ -136,8 +135,8 @@ public class SmartSearchEngine extends UpperApplySearchEngine {
     /**
      * 搜索方法
      *
-     * @param indexName   : String : 索引名称
-     * @param clazz       : Class<R> : 该参数，作用有二 (1) 指定返回类型 (2) 当未指定索引名indexName时，依据此类型，可自动识别索引
+     * @param indexName : String : 索引名称
+     * @param clazz : Class<R> : 该参数，作用有二 (1) 指定返回类型 (2) 当未指定索引名indexName时，依据此类型，可自动识别索引
      * @param searchParam : SearchParam : 搜索参数对象
      * @param <R>
      * @return

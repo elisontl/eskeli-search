@@ -1,6 +1,6 @@
 package com.eskeli.search.entity;
 
-import com.eskeli.search.core.tactic.BasicSearchTactic;
+import com.eskeli.search.center.tactic.BasicSearchTactic;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

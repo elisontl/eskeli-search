@@ -1,11 +1,11 @@
-package com.eskeli.search.core.engine;
+package com.eskeli.search.center.engine;
 
 import com.eskeli.search.adapt.EntityTypeAdapter;
 import com.eskeli.search.annotation.KeliSearchIdxEntity;
 import com.eskeli.search.constant.KeliSearchConstant;
-import com.eskeli.search.core.engine.idxunits.HighlightComponent;
-import com.eskeli.search.core.func.ConvertSourceToMapFunction;
-import com.eskeli.search.core.tactic.SearchTacticInvoker;
+import com.eskeli.search.center.engine.idxunits.HighlightComponent;
+import com.eskeli.search.center.func.ConvertSourceToMapFunction;
+import com.eskeli.search.center.tactic.SearchTacticInvoker;
 import com.eskeli.search.factories.IdxComponentFactory;
 import com.eskeli.search.factories.IdxMetaSettingsFactory;
 import com.eskeli.search.entity.IdxComponent;
@@ -63,18 +63,20 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
     /**
      * 创建索引（索引名自动生成）
      *
+     * @param restHighLevelClient : RestHighLevelClient : 高级别 Client
      * @param t : T
      * @param <T>
      * @return
      */
-    public <T> boolean createIndex(RestHighLevelClient highLevelClient, T t) {
-        return createIndex(highLevelClient, null, t, null);
+    public <T> boolean createIndex(RestHighLevelClient restHighLevelClient, T t) {
+        return createIndex(restHighLevelClient, null, t, null);
     }
 
     /**
      * 创建索引
      * （任何数据类型实体，均可完成数据索引，索引程序只写一次）
      *
+     * @param restHighLevelClient : RestHighLevelClient : 高级别 Client
      * @param indexName : String : 索引名
      * @param t : T : 任意类型实体
      * @param searchFieldInformationMap : Map<String, SearchFieldInformation> : 索引域配置信息集合
@@ -165,7 +167,7 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
     /**
      * 创建索引（指定mapping方式）
      *
-     * @param  restHighLevelClient : RestHighLevelClient : 搜索引擎链接客户端
+     * @param restHighLevelClient : RestHighLevelClient : 搜索引擎链接客户端
      * @param indexName : String : 索引名称
      * @param mappingBuilder : XContentBuilder : 指定的Mapping映射
      * @return
@@ -251,6 +253,7 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
     /**
      * 批量发布索引数据
      *
+     * @param restHighLevelClient : RestHighLevelClient : 高级别 Client
      * @param indexName : String : 索引名称
      * @param list : List<T> : 数据列表
      * @return
@@ -351,6 +354,7 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
     /**
      * 添加索引数据（单条添加）
      *
+     * @param restHighLevelClient : RestHighLevelClient : 高级别 Client
      * @param indexName : String : 索引名
      * @param t : T
      * @param <T>
@@ -440,9 +444,10 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
     /**
      * 精准搜索（ 依据业务数据类别搜索 ）
      *
+     * @param restHighLevelClient : RestHighLevelClient : 高级别 Client
      * @param indexName : String : 索引名称
      * @param clazz : Class<R> : 该参数作用有二，
-    *         (1)指定返回类型 (2)当未指定索引名indexName时，依据此类型，可自动识别索引
+     *         (1) 指定返回类型 (2) 当未指定索引名indexName时，依据此类型，可自动识别索引
      * @param searchParam : SearchParam : 搜索参数对象
      * @return
      */
@@ -585,6 +590,7 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
     /**
      * 删除索引（方式一：指定索引名称，删除索引）
      *
+     * @param restHighLevelClient : RestHighLevelClient : 高级别 Client
      * @param indexName : String : 索引名称
      * @return
      */
@@ -610,6 +616,7 @@ public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine
     /**
      * 删除索引（方式二：指定数据类型，自动生成索引名称，删除索引）
      *
+     * @param restHighLevelClient : RestHighLevelClient : 高级别 Client
      * @param clazz : Class<T> : 索引数据类型
      * @return
      */

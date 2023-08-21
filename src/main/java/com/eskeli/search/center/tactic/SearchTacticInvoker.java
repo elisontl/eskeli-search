@@ -1,6 +1,6 @@
-package com.eskeli.search.core.tactic;
+package com.eskeli.search.center.tactic;
 
-import com.eskeli.search.core.tactic.specific.SampleSearchTactic;
+import com.eskeli.search.center.tactic.specific.SampleSearchTactic;
 
 /**
  * Class Desc : 策略调用
