@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * Class Desc : 搜索上下文
  *
- * @author elison.s
+ * @author elisontl
  */
 public class SearchContext {
 

@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 /**
  * Class Desc : Annotation Dynamic Config
  *
- * @author elison.s
+ * @author elisontl
  */
 public class KeliSearchDynamicConfiguration {
 

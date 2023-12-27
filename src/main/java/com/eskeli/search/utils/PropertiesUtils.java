@@ -9,7 +9,7 @@ import java.util.Properties;
 /**
  * Class Desc : 配置文件 .properties file 读取工具
  *
- * @author elison.s
+ * @author elisontl
  */
 public class PropertiesUtils {
 

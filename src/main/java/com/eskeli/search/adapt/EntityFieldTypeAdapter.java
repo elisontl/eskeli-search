@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Class Desc : 数据域（实体字段、索引域）类型适配器
  *
- * @author elison.s
+ * @author elisontl
  */
 public class EntityFieldTypeAdapter {
 

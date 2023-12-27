@@ -48,7 +48,7 @@ import java.util.stream.Collectors;
 /**
  * Class Desc : 上层搜索引擎
  *
- * @author elison.s
+ * @author elisontl
  */
 @Slf4j
 public abstract class UpperApplySearchEngine extends ConfigStructureSearchEngine {

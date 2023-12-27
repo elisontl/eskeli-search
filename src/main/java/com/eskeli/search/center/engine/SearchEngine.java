@@ -9,7 +9,7 @@ import java.util.Map;
  * Class Desc : 基础索引、搜索方法
  * （ 各检索实现端可在此基础上进行实现扩展 ）
  *
- * @author elison.s
+ * @author elisontl
  */
 public interface SearchEngine {
 

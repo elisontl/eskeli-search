@@ -14,7 +14,7 @@ import java.lang.annotation.*;
  *  非全域索引：（只索引实体类中配有 @KeliSearchIdxArea 的字段）
  *  <1> 实体类指定该注解，且 wholeFieldIndex 为 false（默认方式）
  *
- * @author elison.s
+ * @author elisontl
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

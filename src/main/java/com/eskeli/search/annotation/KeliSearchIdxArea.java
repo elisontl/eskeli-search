@@ -8,7 +8,7 @@ import java.lang.annotation.*;
  * 2）默认情况，首字母小写的所修饰的字段名称，通过指定alias可修改字段索引名
  *    优先级( 高于 > )类级别注解 @KeliSearchIdxEntity
  *
- * @author elison.s
+ * @author elisontl
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

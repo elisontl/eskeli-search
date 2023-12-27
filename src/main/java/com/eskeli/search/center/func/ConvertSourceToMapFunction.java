@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * Class Desc : 转换索引源接口
  *
- * @author elison.s
+ * @author elisontl
  */
 @FunctionalInterface
 public interface ConvertSourceToMapFunction<T, U> {

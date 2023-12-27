@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * Class Desc : 索引（Settings）工厂
  *
- * @author elison.s
+ * @author elisontl
  */
 public class IdxMetaSettingsFactory {
 

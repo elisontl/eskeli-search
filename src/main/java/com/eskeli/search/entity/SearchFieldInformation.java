@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 /**
  * Class Desc : 数据实体模板
  *
- * @author elison.s
+ * @author elisontl
  */
 @NoArgsConstructor
 @AllArgsConstructor

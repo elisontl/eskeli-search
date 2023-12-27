@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 /**
  * Default Keli-Search Idx Engity
  *
- * @author elison.s
+ * @author elisontl
  */
 @KeliSearchIdxEntity(wholeAreaIndex = true, indexCover = true)
 @Retention(RetentionPolicy.RUNTIME)

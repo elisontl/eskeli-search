@@ -10,7 +10,7 @@ import org.elasticsearch.index.query.QueryBuilders;
 /**
  * Class Desc : Sample Search Tactic
  *
- * @author elison.s
+ * @author elisontl
  */
 public class SampleSearchTactic extends BasicSearchTactic {
 

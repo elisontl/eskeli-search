@@ -6,7 +6,7 @@ import java.util.function.Function;
 /**
  * Class Desc : CheckedFunction异常检查处理
  *
- * @author elison.s
+ * @author elisontl
  */
 public class CheckedFunctionProcessor {
 

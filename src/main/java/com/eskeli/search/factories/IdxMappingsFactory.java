@@ -14,7 +14,7 @@ import java.util.Set;
 /**
  * Class Desc : 索引映射工厂
  *
- * @author elison.s
+ * @author elisontl
  */
 public class IdxMappingsFactory {
 

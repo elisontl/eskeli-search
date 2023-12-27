@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Class Desc : 基础搜索引擎
  *
- * @author elison.s
+ * @author elisontl
  */
 public class GeneralSearchEngine extends UpperApplySearchEngine {
 

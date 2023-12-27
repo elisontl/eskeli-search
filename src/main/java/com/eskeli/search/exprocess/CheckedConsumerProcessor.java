@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 /**
  * Class Desc : CheckedConsumer 异常检查处理
  *
- * @author elison.s
+ * @author elisontl
  */
 public class CheckedConsumerProcessor {
 

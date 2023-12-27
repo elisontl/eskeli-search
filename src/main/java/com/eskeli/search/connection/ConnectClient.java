@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 /**
  * Class Desc : 高级别连接客户端 （ 适配单节点模式、集群模式 ）
  *
- * @author elison.s
+ * @author elisontl
  */
 public class ConnectClient {
 

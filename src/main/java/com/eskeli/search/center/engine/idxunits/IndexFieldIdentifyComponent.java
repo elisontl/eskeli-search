@@ -9,7 +9,7 @@ import java.util.Arrays;
 /**
  * Class Desc : 索引域识别与合成组件
  *
- * @author elison.s
+ * @author elisontl
  */
 public class IndexFieldIdentifyComponent {
 

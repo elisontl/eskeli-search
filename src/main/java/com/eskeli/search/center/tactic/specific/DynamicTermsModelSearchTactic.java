@@ -6,7 +6,7 @@ import org.elasticsearch.index.query.QueryBuilder;
 /**
  * Class Desc : 动态词汇建模搜索策略
  *
- * @author elison.s
+ * @author elisontl
  */
 public class DynamicTermsModelSearchTactic extends BasicSearchTactic {
 

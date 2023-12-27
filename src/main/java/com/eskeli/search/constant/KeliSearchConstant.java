@@ -3,7 +3,7 @@ package com.eskeli.search.constant;
 /**
  * Class Desc : 常量类
  *
- * @author elison.s
+ * @author elisontl
  */
 public class KeliSearchConstant {
 

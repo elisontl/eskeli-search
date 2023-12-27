@@ -3,7 +3,7 @@ package com.eskeli.search.entity;
 /**
  * Class Desc : 结果分页
  *
- * @author elison.s
+ * @author elisontl
  */
 public class SearchResultPage {
 

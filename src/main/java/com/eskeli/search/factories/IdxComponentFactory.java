@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Class Desc : 索引（组件）工厂
  *
- * @author elison.s
+ * @author elisontl
  */
 public class IdxComponentFactory {
 

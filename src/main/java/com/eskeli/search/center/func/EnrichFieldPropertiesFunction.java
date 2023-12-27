@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Class Desc : 索引域属性填充接口
  *
- * @author elison.s
+ * @author elisontl
  */
 @FunctionalInterface
 public interface EnrichFieldPropertiesFunction {

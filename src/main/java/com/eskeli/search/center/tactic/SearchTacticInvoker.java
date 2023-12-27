@@ -5,7 +5,7 @@ import com.eskeli.search.center.tactic.specific.SampleSearchTactic;
 /**
  * Class Desc : 策略调用
  *
- * @author elison.s
+ * @author elisontl
  */
 public class SearchTacticInvoker {
 

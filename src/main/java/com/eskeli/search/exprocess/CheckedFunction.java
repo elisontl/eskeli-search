@@ -3,7 +3,7 @@ package com.eskeli.search.exprocess;
 /**
  * Class Desc : 异常检查函数接口，对JDK中Function<T, R>接口进行扩展
  *
- * @author elison.s
+ * @author elisontl
  */
 @FunctionalInterface
 public interface CheckedFunction<T, R> {

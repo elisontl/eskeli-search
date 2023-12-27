@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Class Desc : Analyze Utils
  *
- * @author elison.s
+ * @author elisontl
  */
 public class AnalyzeTermsUtils {
 

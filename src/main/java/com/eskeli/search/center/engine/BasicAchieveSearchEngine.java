@@ -23,7 +23,7 @@ import java.util.stream.Stream;
 /**
  * Class Desc : Bascal Achieve Search Engine
  *
- * @author elison.s
+ * @author elisontl
  */
 @Slf4j
 public abstract class BasicAchieveSearchEngine implements SearchEngine {

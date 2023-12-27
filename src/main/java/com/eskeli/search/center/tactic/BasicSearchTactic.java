@@ -5,7 +5,7 @@ import org.elasticsearch.index.query.QueryBuilder;
 /**
  * Class Desc : Basal Search Tactics
  *
- * @author elison.s
+ * @author elisontl
  */
 public abstract class BasicSearchTactic {
 

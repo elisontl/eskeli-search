@@ -9,7 +9,7 @@ import lombok.Setter;
 /**
  * Class Desc : 索引（分解）元件存储模型
  *
- * @author elison.s
+ * @author elisontl
  */
 @NoArgsConstructor
 @AllArgsConstructor
