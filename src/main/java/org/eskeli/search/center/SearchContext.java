@@ -119,7 +119,7 @@ public class SearchContext {
      * 发布单条数据（ 二 ）
      *
      * @param t : T
-     * @param searchFieldInformationMap : Map<String, SearchFieldInformation
+     * @param searchFieldInformations : Map<String, SearchFieldInformation
      * @param <T>
      * @return
      */
@@ -136,7 +136,7 @@ public class SearchContext {
      *
      * @param indexName : String : 索引名称
      * @param t : T : 索引数据对象
-     * @param searchFieldInformationMap : Map<String, SearchFieldInformation
+     * @param searchFieldInformations : Map<String, SearchFieldInformation
      * @return
      */
     public <T> boolean publishIndexData(String indexName, T t, Map<String, SearchFieldInformation> searchFieldInformations) {
