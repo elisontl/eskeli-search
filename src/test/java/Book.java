@@ -1,4 +1,4 @@
-import com.eskeli.search.annotation.KeliSearchIdxEntity;
+import org.eskeli.search.annotation.KeliSearchIdxEntity;
 import lombok.AllArgsConstructor;
 
 @KeliSearchIdxEntity(indexCover = true, wholeAreaIndex = true)
