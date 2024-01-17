@@ -4,8 +4,6 @@ import org.eskeli.search.annotation.KeliSearchIdxEntity;
 import org.eskeli.search.constant.KeliSearchConstant;
 import org.eskeli.search.entity.IdxComponent;
 import org.eskeli.search.utils.StringUtils;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Class Desc : 索引（组件）工厂
@@ -27,14 +25,12 @@ public class IdxComponentFactory {
         if (clazz == null) {
             return null;
         }
-        Map<String, KeliSearchIdxEntity> resultMap = new HashMap<>();
         // 校验是否为索引类
         KeliSearchIdxEntity indexClazz = clazz.getDeclaredAnnotation(KeliSearchIdxEntity.class);
         String alias = (indexClazz != null) ? indexClazz.alias() : null;
         // 获取索引名
         String indexName = (StringUtils.isNotEmpty(alias) ? alias.toLowerCase() : convert2IndexName(clazz.getSimpleName()));
-
-        indexName = KeliSearchConstant.DATA_INDEX_PREFIX + indexName;
+        indexName = KeliSearchConstant.DATA_INDEX_PREFIX.concat(indexName);
 
         return new IdxComponent(indexName, indexClazz);
     }
@@ -42,7 +38,7 @@ public class IdxComponentFactory {
     /**
      * 转换索引名
      *
-     * @param str
+     * @param str : String : 转换索引名称
      * @return
      */
     public static String convert2IndexName(String str) {
