@@ -6,7 +6,7 @@ import org.eskeli.search.annotation.KeliSearchNotIdxArea;
 import org.eskeli.search.constant.KeliSearchConstant;
 import org.eskeli.search.center.engine.idxunits.HighlightComponent;
 import org.eskeli.search.center.engine.idxunits.IndexFieldIdentifyComponent;
-import org.eskeli.search.center.func.EnrichFieldPropertiesFunction;
+import org.eskeli.search.center.function.EnrichFieldPropertiesFunction;
 import org.eskeli.search.entity.SearchFieldInformation;
 import org.eskeli.search.exprocess.CheckedConsumerProcessor;
 import lombok.extern.slf4j.Slf4j;

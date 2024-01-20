@@ -28,10 +28,22 @@ public @interface KeliSearchIdxArea {
     boolean index() default true;
 
     /**
-     * 分词
+     * 是否分词
      * @return
      */
     boolean analyzed() default true;
+
+    /**
+     * 分词方式（索引分词方式）
+     * max >> ik_max_word
+     */
+    String indexAnalyzeWay() default "ik_max_word";;
+
+    /**
+     * 分词方式（搜索分词方式）
+     * smart >> ik_smart
+     */
+    String searchAnalyzeWay() default "ik_smart";;
 
     /**
      * 存储 ( 存一份指定域的原始数据 ）

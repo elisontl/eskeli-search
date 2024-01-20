@@ -1,4 +1,4 @@
-package org.eskeli.search.center.func;
+package org.eskeli.search.center.function;
 
 import java.util.Map;
 

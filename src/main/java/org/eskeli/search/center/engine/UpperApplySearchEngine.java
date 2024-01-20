@@ -4,7 +4,7 @@ import org.eskeli.search.adapt.EntityTypeAdapter;
 import org.eskeli.search.annotation.KeliSearchIdxEntity;
 import org.eskeli.search.constant.KeliSearchConstant;
 import org.eskeli.search.center.engine.idxunits.HighlightComponent;
-import org.eskeli.search.center.func.ConvertSourceToMapFunction;
+import org.eskeli.search.center.function.ConvertSourceToMapFunction;
 import org.eskeli.search.center.tactic.SearchTacticInvoker;
 import org.eskeli.search.factories.IdxComponentFactory;
 import org.eskeli.search.factories.IdxMetaSettingsFactory;
