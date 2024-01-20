@@ -71,7 +71,12 @@ public class IdxMappingsFactory {
                     boolean index = (indexField != null) ? indexField.index() : true;
                     // 索引分词
                     if (index && analyzed) {
-                        contentBuilder.field("analyzer", "ik_smart");
+                        // index analyzer
+                        String indexAnalyzeWay = (indexField != null) ? indexField.indexAnalyzeWay() : "ik_max_word";
+                        contentBuilder.field("analyzer", indexAnalyzeWay);
+                        // search analyzer
+                        String searchAnalyzeWay = (indexField != null) ? indexField.searchAnalyzeWay() : "ik_smart";
+                        contentBuilder.field("search_analyzer", searchAnalyzeWay);
                     } else {
                         contentBuilder.field("index", "true");
                     }

@@ -1,4 +1,4 @@
-package org.eskeli.search.center.func;
+package org.eskeli.search.center.function;
 
 import org.eskeli.search.entity.SearchFieldInformation;
 import org.elasticsearch.common.xcontent.XContentBuilder;

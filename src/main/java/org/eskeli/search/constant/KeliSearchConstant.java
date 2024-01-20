@@ -10,7 +10,7 @@ public class KeliSearchConstant {
     /*
      * 数据索引前缀 （ 可用于将索引数据从纵向维度划分类别 ）
      */
-    public static final String DATA_INDEX_PREFIX = "data_idx_";
+    public static final String DATA_INDEX_PREFIX = "idx_";
 
     /**
      * 方法名前缀
